@@ -34,14 +34,25 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '.add-to-favorites', function() {
-    let isbn = $(this).data('book-isbn');
+    let isbn = $(this).parent().find('img').attr('alt');
+    // let isbn = $(this).data('book-isbn');
     console.log('Adding book with ISBN:', isbn); 
-    $.post('/api/favorites/add', { isbn }, function(response) {
+    $.ajax({
+      url: '/api/favorites/add',
+      method: 'POST',
+      data: JSON.stringify({ isbn }),
+      contentType: 'application/json'
+    }).done(function(response) {
       alert(response.message);
     }).fail(function(error) {
+      console.error('Error adding to favorites:', error);
       alert('Error adding to favorites');
     });
   });
+
+
+
+
 });
 
 
