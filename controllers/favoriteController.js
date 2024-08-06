@@ -2,12 +2,12 @@ const Favorite = require('../models/Favorite');
 
 exports.addToFavorites = async (req, res) => {
   try {
-    let { isbn } = req.body;
+    let { isbn, title, thumbnail, authors, description } = req.body;
     
-    console.log('Received isbn:', isbn);
+    console.log('Received data:', { isbn, title, thumbnail, authors, description });
 
-    if (!isbn) {
-      return res.status(400).json({ message: 'ISBN is required' });
+    if (!isbn || !title) {
+      return res.status(400).json({ message: 'ISBN and title are required' });
     }
 
     let userId = 'defaultUserId'; 
@@ -17,7 +17,7 @@ exports.addToFavorites = async (req, res) => {
       return res.status(400).json({ message: 'Book is already in favorites' });
     }
 
-    let favorite = new Favorite({ isbn, userId });
+    let favorite = new Favorite({ isbn, title, thumbnail, authors, description, userId });
     await favorite.save();
     res.json({ message: 'Book added to favorites' });
   } catch (error) {
@@ -34,15 +34,13 @@ exports.getFavorites = async (req, res) => {
       return res.status(400).json({ message: 'User ID is required' });
     }
 
-    let favorites = await Favorite.find({ userId }).populate('isbn');
+    let favorites = await Favorite.find({ userId });
     res.json(favorites);
   } catch (error) {
     console.error('Error fetching favorites:', error);
     res.status(500).json({ message: 'Error fetching favorites' });
   }
 };
-
-
 
 exports.removeFavorite = async (req, res) => {
   try {
