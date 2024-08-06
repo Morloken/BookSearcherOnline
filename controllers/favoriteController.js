@@ -16,7 +16,8 @@ exports.addToFavorites = async (req, res) => {
 
 exports.getFavorites = async (req, res) => {
   try {
-    let userId = req.user.id;
+   // let userId = req.user.id;
+   
     let favorites = await Favorite.find({ userId }).populate('bookId');
     res.json(favorites);
   } catch (error) {
