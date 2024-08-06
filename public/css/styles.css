@@ -6,4 +6,23 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-image: url(../../photos/library.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.site-title{
+    text-align: center;
+    font-family: "Comfortaa", sans-serif;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 3rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    background-blend-mode:overlay;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 1fr;
 }

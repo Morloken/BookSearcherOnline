@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,32 @@
     <script src="./js/main.js" defer></script>
 
     <link rel="stylesheet" href="./css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playwrite+DK+Uloopet:wght@100..400&display=swap"
+        rel="stylesheet">
+
+    
 </head>
+
 <body>
+    <h1 class="site-title">Book Searcher Online</h1>
     <div class="app">
         <input type="text" id="search-input" placeholder="Search for books...">
         <button id="search-button">Search</button>
         <div id="books-container"></div><!-- books will be displayed here-->
-        
-        
+
+
         <div id="favorites-container" class="favorites-container"><!-- favorite books will be displayed here-->
             <h2>Favorite books</h2>
             <ul id="favorites-list"></ul>
         </div>
-        
+
     </div>
 </body>
+
 </html>
