@@ -4,7 +4,8 @@ let Book = require('../models/Book');
 exports.addToFavorites = async (req, res) => {
   try {
     let { bookId } = req.body;
-    let userId = req.user.id; // will have autentification of the user in future
+   // let userId = req.user.id; 
+    // will have autentification of the user in future
     let favorite = new Favorite({ bookId, userId });
     await favorite.save();
     res.json({ message: 'Book added to favorites' });
