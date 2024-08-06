@@ -1,20 +1,9 @@
-
-// const mongoose = require('mongoose');
-
-// const favoriteSchema = new mongoose.Schema({
-//   bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book' },
-//   userId: String 
-// });
-
-// module.exports = mongoose.model('Favorite', favoriteSchema);
-
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const favoriteSchema = new mongoose.Schema({
-  bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true },
-  userId: { type: String, required: true } // Може бути ObjectId, якщо у вас є модель User
+const FavoriteSchema = new Schema({
+  isbn: { type: String, required: true },
+  userId: { type: String, required: true }
 });
 
-const Favorite = mongoose.model('Favorite', favoriteSchema);
-
-module.exports = Favorite;
+module.exports = mongoose.model('Favorite', FavoriteSchema);

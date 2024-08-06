@@ -1,52 +1,23 @@
-// let Favorite = require('../models/Favorite');
-// let Book = require('../models/Book');
-
-// exports.addToFavorites = async (req, res) => {
-//   try {
-//     let { bookId } = req.body;
-//    // let userId = req.user.id; 
-//     // will have autentification of the user in future
-//     let favorite = new Favorite({ bookId, userId });
-//     await favorite.save();
-//     res.json({ message: 'Book added to favorites' });
-//   } catch (error) {
-//     res.status(500).json({ message: 'Error adding to favorites' });
-//   }
-// };
-
-// exports.getFavorites = async (req, res) => {
-//   try {
-//    // let userId = req.user.id;
-
-//     let favorites = await Favorite.find({ userId }).populate('bookId');
-//     res.json(favorites);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Error fetching favorites' });
-//   }
-// };
-
 const Favorite = require('../models/Favorite');
 
 exports.addToFavorites = async (req, res) => {
   try {
-    let { bookId } = req.body;
+    let { isbn } = req.body;
     
-    console.log('Received bookId:', bookId);
+    console.log('Received isbn:', isbn);
 
-    if (!bookId) {
-      return res.status(400).json({ message: 'Book ID is required' });
+    if (!isbn) {
+      return res.status(400).json({ message: 'ISBN is required' });
     }
 
     let userId = 'defaultUserId'; 
 
-   
-    let existingFavorite = await Favorite.findOne({ bookId, userId });
+    let existingFavorite = await Favorite.findOne({ isbn, userId });
     if (existingFavorite) {
       return res.status(400).json({ message: 'Book is already in favorites' });
     }
 
-    
-    let favorite = new Favorite({ bookId, userId });
+    let favorite = new Favorite({ isbn, userId });
     await favorite.save();
     res.json({ message: 'Book added to favorites' });
   } catch (error) {
@@ -63,11 +34,10 @@ exports.getFavorites = async (req, res) => {
       return res.status(400).json({ message: 'User ID is required' });
     }
 
-    let favorites = await Favorite.find({ userId }).populate('bookId');
+    let favorites = await Favorite.find({ userId }).populate('isbn');
     res.json(favorites);
   } catch (error) {
     console.error('Error fetching favorites:', error);
     res.status(500).json({ message: 'Error fetching favorites' });
   }
 };
-
