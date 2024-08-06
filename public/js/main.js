@@ -18,10 +18,31 @@ $(document).ready(function() {
       });
     });
   
-    $(document).on('click', '.add-to-favorites', function() {// add to favorites button
-      let bookId = $(this).data('book-id');
-      $.post('/api/favorites/add', { bookId }, function(response) {
-        alert(response.message);
+    // $(document).on('click', '.add-to-favorites', function() {// add to favorites button
+    //   let bookId = $(this).data('book-id');
+    //   $.post('/api/favorites/add', { bookId }, function(response) {
+    //     alert(response.message);
+    //   });
+    // });
+
+
+    $(document).on('click', '.add-to-favorites', function() {
+        let bookId = $(this).data('book-id');
+        console.log('Adding book with ID:', bookId);
+        $.ajax({
+          url: '/api/favorites/add',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ bookId: bookId }),
+          success: function(response) {
+            alert(response.message);
+          },
+          error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('Failed to add book to favorites');
+          }
+        });
       });
-    });
+      
+
   });
