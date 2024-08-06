@@ -19,7 +19,9 @@ async function startServer() {
     
     app.use('/api/books', bookRoutes);
     app.use('/api/favorites', favoriteRoutes);
-
+    
+    // app.use('./routes/bookRoutes', bookRoutes);
+    // app.use('./routes/favoriteRoutes', favoriteRoutes);
     app.use(express.static('public'));
 
     const PORT = process.env.PORT || 3000;
