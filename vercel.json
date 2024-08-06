@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": ".*",
-            "status": 200, // The HTTP status code to return for matching requests. Defaults to 200 (OK).
+            "status": 200,
             
             "dest": "/app.js",
             "methods": ["GET", "POST"]
