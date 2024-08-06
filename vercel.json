@@ -15,6 +15,6 @@
     ],
     "env": {
         "PORT": "3000"
-    },
-    "regions": ["us-central1"]
+    }
+    
 }
