@@ -8,7 +8,9 @@
     ],
     "routes": [
         {
-            "src": "/(.*)",
+            "src": ".*",
+            "status": 200, // The HTTP status code to return for matching requests. Defaults to 200 (OK).
+            
             "dest": "/app.js",
             "methods": ["GET", "POST"]
         }
@@ -16,5 +18,4 @@
     "env": {
         "PORT": "3000"
     }
-    
 }
