@@ -41,3 +41,21 @@ exports.getFavorites = async (req, res) => {
     res.status(500).json({ message: 'Error fetching favorites' });
   }
 };
+
+
+
+exports.removeFavorite = async (req, res) => {
+  try {
+    let { isbn } = req.body;
+    console.log('Received isbn:', isbn);
+    if (!isbn) {
+      return res.status(400).json({ message: 'ISBN is required' });
+    }
+    let userId = 'defaultUserId';
+    await Favorite.deleteOne({ isbn, userId });
+    res.json({ message: 'Book removed from favorites' });
+  } catch (error) {
+    console.error('Error removing from favorites:', error);
+    res.status(500).json({ message: 'Error removing from favorites' }); 
+  }
+};

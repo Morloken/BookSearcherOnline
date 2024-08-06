@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#search-button').on('click', function() {
+  $('#search-button').on('click', function() {//when search button is clicked
 
 
     let query = $('#search-input').val();
@@ -39,9 +39,8 @@ $(document).ready(function() {
     });
   });
 
-  $(document).on('click', '.add-to-favorites', function() {
+  $(document).on('click', '.add-to-favorites', function() {//adding book to favorites
     let isbn = $(this).parent().find('img').attr('alt');
-    // let isbn = $(this).data('book-isbn');
     console.log('Adding book with ISBN:', isbn); 
     $.ajax({
       url: '/api/favorites/add',
@@ -50,16 +49,68 @@ $(document).ready(function() {
       contentType: 'application/json'
     }).done(function(response) {
       alert(response.message);
+      loadFavorites();
     }).fail(function(error) {
       console.error('Error adding to favorites:', error);
       alert('Error adding to favorites');
     });
+    //adding every book into <ul> on the main page
+    $('#favorites-list').append(`
+      <li>
+        ISBN: ${isbn}
+        
+        <button class="remove-from-favorites" data-book-isbn="${isbn}">Remove from Favorites</button>
+      </li>
+
+    `);
+    
+
+
+
   });
 
+  $(document).on('click', '.remove-from-favorites', function() {//removing book from favorites
+    let isbn = $(this).data('book-isbn'); 
+    console.log('Removing book with ISBN:', isbn);
+    
+    $.ajax({
+      url: '/api/favorites/remove', 
+      method: 'POST',
+      data: JSON.stringify({ isbn }), 
+      contentType: 'application/json'
+    }).done(function(response) {
+      alert(response.message);
+      loadFavorites();
+      $(this).parent().remove(); 
+    }).fail(function(error) {
+      console.error('Error removing from favorites:', error);
+      alert('Error removing from favorites');
+    });
+  });
+   
 
+  function loadFavorites() {//loading favorites
+    $.get('/api/favorites', function(data) {
+      $('#favorites-list').empty(); 
+      if (Array.isArray(data)) {
+        data.forEach(function(favorite) {
+          let isbn = favorite.isbn;
+          $('#favorites-list').append(`
+            <li>
+              ISBN: ${isbn}
+              <button class="remove-from-favorites" data-book-isbn="${isbn}">Remove from Favorites</button>
+            </li>
+          `);
+        });
+      } else {
+        console.error('Favorites data is incorrect:', data);
+      }
+    }).fail(function(error) {
+      console.error('Error retrieving favorites:', error);
+    });
+  }
+
+  loadFavorites();
 
 
 });
-
-
-
