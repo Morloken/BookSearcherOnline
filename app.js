@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const bookRoutes = require('./routes/bookRoutes'); 
-const favoriteRoutes = require('./routes/favoriteRoutes'); 
+const bookRoutes = require('./routes/books'); 
+const favoriteRoutes = require('./routes/favorites'); 
 
 const app = express();
 
