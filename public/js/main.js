@@ -1,6 +1,12 @@
 $(document).ready(function() {
   $('#search-button').on('click', function() {
+
+
     let query = $('#search-input').val();
+    if (!query) {
+      alert('Please enter a search query');
+      return;
+    }
     $.get(`/api/books/search?query=${query}`, function(data) {
       $('#books-container').empty();
       console.log('API Response:', data); 
