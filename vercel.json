@@ -14,10 +14,10 @@
     ],
     "env": {
       "PORT": "3000",
-      "MONGODB_URI": "mongodb+srv://nikitaillarionov2018:MkFjh9ixyXPsi6mB@cluster0.bm8zu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-      "CORS_DOMAIN": "https://booksearcheronline.vercel.app",
+      "MONGODB_URI": "mongodb+srv://username:password@cluster0.mongodb.net/dbname?retryWrites=true&w=majority",
+      "CORS_DOMAIN": "https://book-m-searcher-online.vercel.app",
       "NODE_ENV": "production",
-      "CORS_ALLOW_ORIGIN": "https://booksearcheronline.vercel.app",
+      "CORS_ALLOW_ORIGIN": "https://book-m-searcher-online.vercel.app",
       "CORS_ALLOW_METHODS": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
     },
     "headers": [
@@ -26,7 +26,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'https://code.jquery.com'; style-src 'self' 'https://book-m-searcher-online.vercel.app' 'https://fonts.googleapis.com'; font-src 'self' 'https://fonts.gstatic.com'; img-src 'self' data:; connect-src 'self' https://*.vercel.app; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+            "value": "default-src 'self'; script-src 'self' https://code.jquery.com; style-src 'self' https://book-m-searcher-online.vercel.app https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.vercel.app; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
           }
         ]
       }
