@@ -13,6 +13,12 @@
         "destination": "/app.js"
       }
     ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1"
+      }
+    ],
     "env": {
       
       "MONGODB_URI": "mongodb+srv://nikitaillarionov2018:MkFjh9ixyXPsi6mB@cluster0.bm8zu.mongodb.net/dbname?retryWrites=true&w=majority",
