@@ -23,14 +23,8 @@
     },
     "headers": [
       {
-        "source": "/(.*)",
-        "headers": [
-          {
-            "key": "Content-Security-Policy",
-           
-            "value": "default-src 'self'; script-src 'report-sample' 'self' https://code.jquery.com/jquery-3.6.0.min.js; style-src 'report-sample' 'self' https://fonts.googleapis.com; object-src 'none'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; report-uri https://66b37b66a05c71ef291609e2.endpoint.csper.io/?v=0; worker-src 'none';"
-          }
-        ]
+        "source": "/(.*)"
+       
       }
     ]
   }
