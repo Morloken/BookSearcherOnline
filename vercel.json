@@ -9,8 +9,6 @@
     "routes": [
         {
             "src": "/(.*)",
-            "status": 200,
-            
             "dest": "/app.js",
             "methods": ["GET", "POST"]
         }
