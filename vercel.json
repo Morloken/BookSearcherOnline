@@ -20,13 +20,9 @@
       "NODE_ENV": "production",
       "CORS_ALLOW_ORIGIN": "https://book-m-searcher-online.vercel.app",
       "CORS_ALLOW_METHODS": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-    },
-    "headers": [
-      {
-        "source": "/(.*)"
-       
-      }
-    ]
+    }
+    
+
   }
   
   
