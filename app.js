@@ -9,17 +9,17 @@ const app = express();
 
 app.use(express.json());
 
-const csp = `
-  default-src 'self';
-  script-src 'self' https://code.jquery.com;
-  style-src 'self' https://fonts.googleapis.com;
-  font-src 'self' https://fonts.gstatic.com;
-`;
+// const csp = `
+//   default-src 'self';
+//   script-src 'self' https://code.jquery.com;
+//   style-src 'self' https://fonts.googleapis.com;
+//   font-src 'self' https://fonts.gstatic.com;
+// `;
 
-app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', csp.replace(/\n/g, ' '));
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader('Content-Security-Policy', csp.replace(/\n/g, ' '));
+//   next();
+// });
 
 async function startServer() {
   try {
