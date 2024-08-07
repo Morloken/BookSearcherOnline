@@ -9,8 +9,6 @@ const app = express();
 
 app.use(express.json());
 
-
-
 const csp = `
   default-src 'self';
   script-src 'self' https://code.jquery.com;
@@ -34,10 +32,8 @@ async function startServer() {
     app.use('/api/books', bookRoutes);
     app.use('/api/favorites', favoriteRoutes);
     
-    
     app.use(express.static(path.join(__dirname, 'public')));
 
-    
     app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'public', 'index.html'));
     });
