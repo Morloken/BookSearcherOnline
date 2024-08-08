@@ -14,11 +14,12 @@ $(document).ready(function() {
       
         if (Array.isArray(data)) {
           data.forEach(function(book) {
+            console.log(book);
+            let isbn = book.isbn || 'N/A';
             let thumbnail = book.thumbnail || 'default-thumbnail.jpg';
             let title = book.title || 'No title available';
             let authors = book.authors ? book.authors.join(', ') : 'No authors available';
             let description = book.description || 'No description available';
-            let isbn = book.isbn || 'N/A';
   
             $('#books-container').append(`
               <div class="book">
@@ -53,8 +54,10 @@ $(document).ready(function() {
       }
   
       $.ajax({
+        type: 'POST',
         url: '/api/favorites/add',
         method: 'POST',
+        
         data: JSON.stringify({ isbn, title, thumbnail, authors, description }),
         contentType: 'application/json'
       }).done(function(response) {
@@ -65,6 +68,52 @@ $(document).ready(function() {
         alert('Error adding to favorites');
       });
     });
+
+
+    // $(document).on('click', '.add-to-favorites', function() { //add to favorites
+    //   let isbn = $(this).data('book-isbn');
+    //   let title = $(this).data('book-title');
+    //   let thumbnail = $(this).data('book-thumbnail');
+    //   let authors = $(this).data('book-authors');
+    //   let description = $(this).data('book-description');
+  
+    //   if (!isbn) {
+    //     console.error('ISBN is not defined');
+    //     return;
+    //   }
+  
+    //   let book = {
+    //     isbn: isbn,
+    //     title: title,
+    //     thumbnail: thumbnail,
+    //     authors: authors,
+    //     description: description
+    //   };
+  
+    //   $.ajax({
+    //     url: '/api/favorites/add',
+    //     method: 'POST',
+    //     data: JSON.stringify(book),
+    //     contentType: 'application/json',
+    //     success: function(data) {
+    //       console.log('Book added to favorites:', data);
+    //       // $('#favorites-container').css('display', 'block');
+    //       loadFavorites();
+    //     },
+    //     error: function(error) {
+    //       console.error('Error:', error);
+    //       alert('Failed to add book to favorites');
+    //     }
+    //   });
+    // });
+
+
+
+
+
+
+
+
   
     $(document).on('click', '.remove-from-favorites', function() {//remove from favorites
       let isbn = $(this).data('book-isbn');
