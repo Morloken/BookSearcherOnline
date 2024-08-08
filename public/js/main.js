@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     $('#search-button').on('click', function() {
       let query = $('#search-input').val();
@@ -39,7 +40,7 @@ $(document).ready(function() {
       });
     });
   
-    $(document).on('click', '.add-to-favorites', function() {
+    $(document).on('click', '.add-to-favorites', function() {//add to favorites
       let isbn = $(this).data('book-isbn');
       let title = $(this).data('book-title');
       let thumbnail = $(this).data('book-thumbnail');
@@ -65,7 +66,7 @@ $(document).ready(function() {
       });
     });
   
-    $(document).on('click', '.remove-from-favorites', function() {
+    $(document).on('click', '.remove-from-favorites', function() {//remove from favorites
       let isbn = $(this).data('book-isbn');
       
       if (!isbn) {
@@ -106,6 +107,9 @@ $(document).ready(function() {
                 <p>${description}</p>
                 <button class="remove-from-favorites" data-book-isbn="${isbn}">Remove from Favorites</button>
               </li>
+
+
+
             `);
           });
         } else {
@@ -118,4 +122,3 @@ $(document).ready(function() {
   
     loadFavorites();  
   });
-  
