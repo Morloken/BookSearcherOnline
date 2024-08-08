@@ -29,30 +29,30 @@ const helmet = require('helmet');
 // app.use(helmet.xssFilter());
 
 
-app.use(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "https://code.jquery.com"],
-      styleSrc: ["'self'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:"],
-      connectSrc: ["'self'"],
-      frameSrc: ["'none'"],
-      objectSrc: ["'none'"],
-      baseUri: ["'none'"],
-      formAction: ["'none'"],
-      upgradeInsecureRequests: [],
-      styleSrcElement: ["'self'", "https://fonts.googleapis.com"],
-      styleSrcAttr: ["'self'", "https://fonts.googleapis.com"],
-      mediaSrc: ["'none'"],
-      childSrc: ["'none'"],
-      workerSrc: ["'none'"],
-      objectSubrequest: ["'none'"],
-    },
-  })
-);
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     useDefaults: true,
+//     directives: {
+//       defaultSrc: ["'self'"],
+//       scriptSrc: ["'self'", "https://code.jquery.com"],
+//       styleSrc: ["'self'", "https://fonts.googleapis.com"],
+//       fontSrc: ["'self'", "https://fonts.gstatic.com"],
+//       imgSrc: ["'self'", "data:"],
+//       connectSrc: ["'self'"],
+//       frameSrc: ["'none'"],
+//       objectSrc: ["'none'"],
+//       baseUri: ["'none'"],
+//       formAction: ["'none'"],
+//       upgradeInsecureRequests: [],
+//       styleSrcElement: ["'self'", "https://fonts.googleapis.com"],
+//       styleSrcAttr: ["'self'", "https://fonts.googleapis.com"],
+//       mediaSrc: ["'none'"],
+//       childSrc: ["'none'"],
+//       workerSrc: ["'none'"],
+//       objectSubrequest: ["'none'"],
+//     },
+//   })
+// );
 
 
 // const csp = `
