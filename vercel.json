@@ -1,34 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "app.js",
-        "use": "@vercel/node"
-        
-      }
-    ],
-    "rewrites": [
-        {
-            "source": "/",
-            "destination": "/public/index.html"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/public/index.html"
-        }
-      
-     
-    ],
-    "env": {
-      
-      "MONGODB_URI": "mongodb+srv://nikitaillarionov2018:MkFjh9ixyXPsi6mB@cluster0.bm8zu.mongodb.net/dbname?retryWrites=true&w=majority",
-      "CORS_DOMAIN": "https://book-m-searcher-online.vercel.app",
-      "NODE_ENV": "production",
-      "CORS_ALLOW_ORIGIN": "https://book-m-searcher-online.vercel.app",
-      "CORS_ALLOW_METHODS": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
     }
-    
-
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/public/$1"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://nikitaillarionov2018:MkFjh9ixyXPsi6mB@cluster0.bm8zu.mongodb.net/dbname?retryWrites=true&w=majority",
+    "CORS_DOMAIN": "https://book-m-searcher-online.vercel.app",
+    "NODE_ENV": "production",
+    "CORS_ALLOW_ORIGIN": "https://book-m-searcher-online.vercel.app",
+    "CORS_ALLOW_METHODS": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
   }
-  
-  
+}
