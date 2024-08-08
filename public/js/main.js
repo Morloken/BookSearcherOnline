@@ -5,7 +5,8 @@ $(document).ready(function() {
         alert('Please enter a search query');
         return;
       }
-      $('#search-input').val() = '';
+      $('#search-input').val('');
+
       $.get(`/api/books/search?query=${query}`, function(data) {
         $('#books-container').empty();
         console.log('API Response:', data); 

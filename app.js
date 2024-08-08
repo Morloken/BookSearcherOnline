@@ -83,6 +83,27 @@ async function startServer() {
     app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'public',"index.html"));
     });
+    
+    app.get('/public/js/main.js', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'js', 'main.js'));
+    });
+    
+    app.get('/public/css/styles.css', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'css', 'styles.css'));
+    });
+    
+    app.get('/public/fonts/roboto-v18-latin-regular.woff2', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'fonts', 'roboto-v18-latin-regular.woff2'));
+    });
+    
+    app.get('/public/fonts/roboto-v18-latin-700.woff2', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'fonts', 'roboto-v18-latin-700.woff2'));
+    });
+    
+    app.get('/public/js/jquery-3.6.0.min.js', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'js', 'jquery-3.6.0.min.js'));
+    });
+
 
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
