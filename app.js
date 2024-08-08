@@ -9,64 +9,6 @@ const app = express();
 
 app.use(express.json());
 
-
-
-
-
-const helmet = require('helmet');
-
-
-// app.use(helmet.dnsPrefetchControl());
-// app.use(helmet.expectCt());
-// app.use(helmet.frameguard());
-// app.use(helmet.hidePoweredBy());
-// app.use(helmet.hsts());
-// app.use(helmet.ieNoOpen());
-// app.use(helmet.noSniff());
-// app.use(helmet.originAgentCluster());
-// app.use(helmet.permittedCrossDomainPolicies());
-// app.use(helmet.referrerPolicy());
-// app.use(helmet.xssFilter());
-
-
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     useDefaults: true,
-//     directives: {
-//       defaultSrc: ["'self'"],
-//       scriptSrc: ["'self'", "https://code.jquery.com"],
-//       styleSrc: ["'self'", "https://fonts.googleapis.com"],
-//       fontSrc: ["'self'", "https://fonts.gstatic.com"],
-//       imgSrc: ["'self'", "data:"],
-//       connectSrc: ["'self'"],
-//       frameSrc: ["'none'"],
-//       objectSrc: ["'none'"],
-//       baseUri: ["'none'"],
-//       formAction: ["'none'"],
-//       upgradeInsecureRequests: [],
-//       styleSrcElement: ["'self'", "https://fonts.googleapis.com"],
-//       styleSrcAttr: ["'self'", "https://fonts.googleapis.com"],
-//       mediaSrc: ["'none'"],
-//       childSrc: ["'none'"],
-//       workerSrc: ["'none'"],
-//       objectSubrequest: ["'none'"],
-//     },
-//   })
-// );
-
-
-// const csp = `
-//   default-src 'self';
-//   script-src 'self' https://code.jquery.com;
-//   style-src 'self' https://fonts.googleapis.com;
-//   font-src 'self' https://fonts.gstatic.com;
-// `;
-
-// app.use((req, res, next) => {
-//   res.setHeader('Content-Security-Policy', csp.replace(/\n/g, ' '));
-//   next();
-// });
-
 async function startServer() {
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
@@ -92,13 +34,13 @@ async function startServer() {
       res.sendFile(path.join(__dirname, 'public', 'css', 'styles.css'));
     });
     
-    app.get('/public/fonts/roboto-v18-latin-regular.woff2', (req, res) => {
-      res.sendFile(path.join(__dirname, 'public', 'fonts', 'roboto-v18-latin-regular.woff2'));
-    });
+    // app.get('/public/fonts/roboto-v18-latin-regular.woff2', (req, res) => {
+    //   res.sendFile(path.join(__dirname, 'public', 'fonts', 'roboto-v18-latin-regular.woff2'));
+    // });
     
-    app.get('/public/fonts/roboto-v18-latin-700.woff2', (req, res) => {
-      res.sendFile(path.join(__dirname, 'public', 'fonts', 'roboto-v18-latin-700.woff2'));
-    });
+    // app.get('/public/fonts/roboto-v18-latin-700.woff2', (req, res) => {
+    //   res.sendFile(path.join(__dirname, 'public', 'fonts', 'roboto-v18-latin-700.woff2'));
+    // });
     
     app.get('/public/js/jquery-3.6.0.min.js', (req, res) => {
       res.sendFile(path.join(__dirname, 'public', 'js', 'jquery-3.6.0.min.js'));
