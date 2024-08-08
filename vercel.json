@@ -13,8 +13,9 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/public/$1"
+      "destination": "/index.html"
     }
+    
   ],
   "env": {
     "MONGODB_URI": "mongodb+srv://nikitaillarionov2018:MkFjh9ixyXPsi6mB@cluster0.bm8zu.mongodb.net/dbname?retryWrites=true&w=majority",
