@@ -9,6 +9,52 @@ const app = express();
 
 app.use(express.json());
 
+
+
+
+
+const helmet = require('helmet');
+
+
+// app.use(helmet.dnsPrefetchControl());
+// app.use(helmet.expectCt());
+// app.use(helmet.frameguard());
+// app.use(helmet.hidePoweredBy());
+// app.use(helmet.hsts());
+// app.use(helmet.ieNoOpen());
+// app.use(helmet.noSniff());
+// app.use(helmet.originAgentCluster());
+// app.use(helmet.permittedCrossDomainPolicies());
+// app.use(helmet.referrerPolicy());
+// app.use(helmet.xssFilter());
+
+
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "https://code.jquery.com"],
+      styleSrc: ["'self'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:"],
+      connectSrc: ["'self'"],
+      frameSrc: ["'none'"],
+      objectSrc: ["'none'"],
+      baseUri: ["'none'"],
+      formAction: ["'none'"],
+      upgradeInsecureRequests: [],
+      styleSrcElement: ["'self'", "https://fonts.googleapis.com"],
+      styleSrcAttr: ["'self'", "https://fonts.googleapis.com"],
+      mediaSrc: ["'none'"],
+      childSrc: ["'none'"],
+      workerSrc: ["'none'"],
+      objectSubrequest: ["'none'"],
+    },
+  })
+);
+
+
 // const csp = `
 //   default-src 'self';
 //   script-src 'self' https://code.jquery.com;
@@ -35,7 +81,7 @@ async function startServer() {
     app.use(express.static(path.join(__dirname, 'public')));
 
     app.get('/', (req, res) => {
-      res.sendFile(path.join(__dirname, 'public', 'index.html'));
+      res.sendFile(path.join(__dirname, 'public',"index.html"));
     });
 
     const PORT = process.env.PORT || 3000;
