@@ -7,6 +7,8 @@ const favoriteRoutes = require('./routes/favorites');
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.json());
 
 async function startServer() {
@@ -23,7 +25,9 @@ async function startServer() {
     app.use(express.static(path.join(__dirname, 'public')));
 
     app.get('/', (req, res) => {
+      
       res.sendFile(path.join(__dirname, 'public',"index.html"));
+
     });
     
     app.get('/public/js/main.js', (req, res) => {
@@ -46,6 +50,10 @@ async function startServer() {
       res.sendFile(path.join(__dirname, 'public', 'js', 'jquery-3.6.0.min.js'));
     });
 
+    app.get('/api/books/search', (req, res) => {
+      const query = req.query.query;
+      res.send(`Searching for ${query}`);
+    });
 
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
@@ -56,3 +64,5 @@ async function startServer() {
 }
 
 startServer();
+
+
