@@ -54,7 +54,7 @@ $(document).ready(function() {
       }
   
       $.ajax({
-        type: 'POST',
+        
         url: '/api/favorites/add',
         method: 'POST',
         

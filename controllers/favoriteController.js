@@ -3,7 +3,8 @@ const Favorite = require('../models/Favorite');
 exports.addToFavorites = async (req, res) => {
   try {
     let { isbn, title, thumbnail, authors, description } = req.body;
-    
+    console.log('Request Body:', req.body);
+
     console.log('Received data:', { isbn, title, thumbnail, authors, description });
 
     if (!isbn || !title) {
