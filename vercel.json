@@ -7,24 +7,13 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-      
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "book-m-searcher-online.vercel.app"
-        }
-      ],
-     
-      "destination": "/index.html"
-    }
-    
+  {
+    "source": "/(.*)",
+    "destination": "/public/index.html"
+  }
   ],
+  
+
   "env": {
     "MONGODB_URI": "mongodb+srv://nikitaillarionov2018:MkFjh9ixyXPsi6mB@cluster0.bm8zu.mongodb.net/dbname?retryWrites=true&w=majority",
     "CORS_DOMAIN": "https://book-m-searcher-online.vercel.app",
