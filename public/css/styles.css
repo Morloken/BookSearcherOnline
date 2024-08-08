@@ -7,7 +7,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-image: url(../../photos/library.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -15,6 +15,7 @@ body{
     flex-direction: column;
     
 }
+
 .site-title{
     text-align: center;
     font-family: "Comfortaa", sans-serif;
@@ -26,3 +27,115 @@ body{
     background-color: rgba(0, 0, 0, 0.5);
     padding-top: 1fr;
 }
+#search-input{
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}
+#search-button{
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+h1, h2, h3, h4, h5, h6, li,p {
+    color: #fff;
+
+}
+p{
+    padding: 20px;
+    font-size: 1.2rem;
+    
+}
+.app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin: 0 20px ;
+    position: relative;
+}
+.favorites-container{
+    border-top: 2px solid #fff;
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    
+}
+.favorites-container h2{
+    margin-top: 0;
+    color: #fff;
+    margin-top: 20px;
+}
+.favorites-container ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.favorites-container  li{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    
+}
+.favorites-container li :nth-child(3){
+    color: rgb(7, 211, 247);
+}
+.favorites-container li button{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+.book{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 10px; 
+    gap: 10px;    
+}
+.book :nth-child(3){
+    color: rgb(7, 211, 247);
+}
+.book button{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
