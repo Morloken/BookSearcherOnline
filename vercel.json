@@ -8,9 +8,12 @@
     ],
     "rewrites": [
       {
+        "source": "/public/(.*)",
+        "destination": "/public/$1"
+      },
+      {
         "source": "/(.*)",
-        
-        "destination":"/app.js"
+        "destination": "/index.html"
       }
     ],
     "env": {
